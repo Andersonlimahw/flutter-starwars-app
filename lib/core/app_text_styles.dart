@@ -60,4 +60,47 @@ class AppTextStyles {
     fontWeight: FontWeight.normal,
   );
 
+  // Star Wars: Font
+  static final TextStyle titleStarWars = GoogleFonts.pollerOne(
+    color: AppColors.primaryTextColor,
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final TextStyle titleStarWarsBold = GoogleFonts.pollerOne(
+    color: AppColors.primaryTextColor,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle headingStarWars = GoogleFonts.pollerOne(
+    color: AppColors.primaryColorDark,
+    fontSize: 40,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle headingMediumStarWars = GoogleFonts.pollerOne(
+    color: AppColors.primaryColorDark,
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle bodyStarWars = GoogleFonts.pollerOne(
+    color: AppColors.primaryTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+  );
+
+  static final TextStyle bodyBoldStarWars = GoogleFonts.pollerOne(
+    color: AppColors.primaryTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final TextStyle bodyLightStarWars = GoogleFonts.pollerOne(
+    color: AppColors.secondaryTextColor,
+    fontSize: 13,
+    fontWeight: FontWeight.normal,
+  );
+
 }

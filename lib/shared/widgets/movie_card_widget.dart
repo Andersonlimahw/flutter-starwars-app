@@ -10,7 +10,7 @@ class MovieCardWidget extends StatelessWidget {
   final String title;
   final String releaseDate;
   final VoidCallback onTap;
-  
+
   const MovieCardWidget({
     Key? key,
     required this.url,
@@ -25,28 +25,32 @@ class MovieCardWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 240,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                  image: NetworkImage(image)),
+          Expanded(
+            child: Container(
+              height: 400,
+              decoration: BoxDecoration(
+                image: DecorationImage(image: NetworkImage(image)),
+              ),
             ),
-          ),              
-          SizedBox(
-            height: 16,
           ),
-          ButtonWidget.primary(label: "Ver mais", onTap: onTap),
           SizedBox(
-            height: 16,
+            height: 8,
           ),
           Text(
             title,
-            style: AppTextStyles.body,
-          )
+            style: AppTextStyles.bodyStarWars,
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          ButtonWidget.primary(label: "Ver mais", onTap: onTap),
+          SizedBox(
+            height: 8,
+          ),
+          Divider()
         ],
       ),
     );
