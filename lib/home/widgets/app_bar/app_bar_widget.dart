@@ -14,27 +14,29 @@ class AppBarWidget extends PreferredSize {
                 padding: const EdgeInsets.all(0.0),
                 child: Stack(
                   children: [
-                    Container(
-                      height: 350,
-                      width: double.maxFinite,
-                      alignment: Alignment.bottomCenter,
-                      foregroundDecoration: BoxDecoration(
-                        gradient: AppGradients.linear,
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(AppImages.banner)),
-                      ),                     
-                      child: Align(
-                        alignment: Alignment(0.0, 1.0),
-                        child: Text.rich((TextSpan(
-                            text: title,
-                            style: AppTextStyles.appBarTitle,
-                            children: [
-                              TextSpan(
-                                text: "",
-                                style: AppTextStyles.bodyBoldStarWarsSecondary,
-                              ),
-                            ]))),
+                    Center(
+                      child: Container(
+                        height: 350,
+                        width: double.maxFinite,
+                        alignment: Alignment.center,
+                        foregroundDecoration: BoxDecoration(
+                          gradient: AppGradients.linear,
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(AppImages.banner)),
+                        ),
+                        child: Align(
+                            alignment: Alignment(-0.8, 1.3),
+                            child: Text.rich((TextSpan(
+                                text: title,
+                                style: AppTextStyles.headingStarWarsSecondary,
+                                children: [
+                                  TextSpan(
+                                    text: "",
+                                    style: AppTextStyles.bodyBoldSecondary,
+                                  ),
+                                ]))),
+                          ),
                       ),
                     ),
                   ],

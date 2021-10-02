@@ -36,6 +36,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static final TextStyle headingSecondary = GoogleFonts.robotoMono(
+    color: AppColors.secondaryTextColor,
+    fontSize: 40,
+    fontWeight: FontWeight.w600,
+  );
+
   static final TextStyle headingMedium = GoogleFonts.robotoMono(
     color: AppColors.primaryColorDark,
     fontSize: 24,
@@ -88,6 +94,12 @@ class AppTextStyles {
 
   static final TextStyle headingStarWars = GoogleFonts.pollerOne(
     color: AppColors.primaryColorDark,
+    fontSize: 40,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
+    color: AppColors.secondaryTextColor,
     fontSize: 40,
     fontWeight: FontWeight.w600,
   );

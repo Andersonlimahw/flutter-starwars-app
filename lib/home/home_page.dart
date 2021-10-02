@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(title: "Star Wars",),
+        appBar: AppBarWidget(title: "Movies",),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
                             image:
-                                "https://m.media-amazon.com/images/I/512HooIJQqL.jpg",
+                                "https://upload.wikimedia.org/wikipedia/pt/a/ae/Starwars_06.jpg",
                             title: "A New Hope",
                             releaseDate: "25/05/1977",
                             onTap: () {
