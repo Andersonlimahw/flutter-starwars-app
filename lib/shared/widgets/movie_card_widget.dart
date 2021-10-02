@@ -47,11 +47,11 @@ class MovieCardWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 4,
+                          height: 8,
                         ),
                         Text(
                           title,
-                          style: AppTextStyles.bodyStarWars,
+                          style: AppTextStyles.bodyBoldStarWarsSecondary,
                         ),
                       ],
                     ),

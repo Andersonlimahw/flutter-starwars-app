@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lemonstarwars/core/app_gradients.dart';
+import 'package:lemonstarwars/home/widgets/app_bar/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,14 +18,16 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: null,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+        appBar: AppBarWidget(title: "Star Wars",),
+        body: Container(
+          decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(
             scrollDirection: Axis.horizontal,
+            physics: NeverScrollableScrollPhysics(),
             children: movies
                       .map((e) => Container(
                         width: 240,
+                        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
                             image:

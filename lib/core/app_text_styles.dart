@@ -104,9 +104,15 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static final TextStyle bodyBoldStarWarsSecondary = GoogleFonts.pollerOne(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
   static final TextStyle bodyLightStarWars = GoogleFonts.pollerOne(
-    color: AppColors.secondaryTextColor,
-    fontSize: 13,
+    color: Colors.white,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
   );
 

@@ -1,52 +1,40 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/app_text_styles.dart';
+import 'package:lemonstarwars/core/core.dart';
 
 class AppBarWidget extends PreferredSize {
-  final String user;
-  
-  AppBarWidget({ this.user = "" })
+  final String title;
+
+  AppBarWidget({this.title = "Star Wars"})
       : super(
             preferredSize: Size.fromHeight(250),
             child: Container(
                 height: 250,
+                padding: const EdgeInsets.all(0.0),
                 child: Stack(
                   children: [
                     Container(
-                      height: 161,
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      decoration: BoxDecoration(gradient: AppGradients.linear),
-                      width: double.maxFinite,                      
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text.rich((TextSpan(
-                              text: "Olá, ",
-                              style: AppTextStyles.appBarTitle,
-                              children: [
-                                TextSpan(
-                                    text: user, 
-                                    style: AppTextStyles.titleBold)
-                              ]))),
-                          Container(
-                            width: 58,
-                            height: 58,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: NetworkImage(user)),
-                            ),
-                          )
-                        ],
+                      height: 250,
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                        gradient: AppGradients.linear,
+                        image: DecorationImage(
+                            image: AssetImage(AppImages.banner)),
+                      ),
+                      child: Align(
+                        alignment: Alignment(0.0, 0.9),
+                        child: Text.rich((TextSpan(
+                            text: title,
+                            style: AppTextStyles.appBarTitle,
+                            children: [
+                              TextSpan(
+                                text: "",
+                                style: AppTextStyles.bodyBoldStarWarsSecondary,
+                              ),
+                            ]))),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.0, 1.0),
-                      child: null,
-                    ) 
                   ],
-                )
-              )
-            );
+                )));
 }
