@@ -22,37 +22,46 @@ class MovieCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Container(
-              height: 400,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage(image)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          child: Stack(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8, 
+                            vertical: 8,
+                          ),
+                          height: 340,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: NetworkImage(image)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          title,
+                          style: AppTextStyles.bodyStarWars,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
+            ],
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            title,
-            style: AppTextStyles.bodyStarWars,
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          ButtonWidget.primary(label: "Ver mais", onTap: onTap),
-          SizedBox(
-            height: 8,
-          ),
-          Divider()
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
