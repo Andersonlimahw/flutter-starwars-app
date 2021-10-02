@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/app_text_styles.dart';
-import 'package:lemonstarwars/shared/widgets/button_widget.dart';
 
 class MovieCardWidget extends StatelessWidget {
   final String url;
@@ -45,7 +42,7 @@ class MovieCardWidget extends StatelessWidget {
                             ),
                             height: 300,
                             decoration: BoxDecoration(
-                              image: DecorationImage(image: NetworkImage(image)),
+                              image: DecorationImage(image: AssetImage(image)),
                             ),
                           ),
                           SizedBox(

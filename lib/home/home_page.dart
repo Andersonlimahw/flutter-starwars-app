@@ -35,8 +35,7 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
-                            image:
-                                "https://upload.wikimedia.org/wikipedia/pt/a/ae/Starwars_06.jpg",
+                            image: AppImages.thumb,
                             title: "A New Hope",
                             releaseDate: "25/05/1977",
                             onTap: () {
