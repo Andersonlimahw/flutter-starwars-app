@@ -61,6 +61,13 @@ class AppTextStyles {
   );
 
   // Star Wars: Font
+  static final TextStyle appBarTitle = GoogleFonts.pollerOne(
+    color: Colors.white,
+    fontSize: 40,
+    fontWeight: FontWeight.w900,
+    fontStyle: FontStyle.italic
+  );
+
   static final TextStyle titleStarWars = GoogleFonts.pollerOne(
     color: AppColors.primaryTextColor,
     fontSize: 20,

@@ -34,7 +34,7 @@ class MovieCardWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 8,
+                          height: 4,
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
@@ -47,7 +47,7 @@ class MovieCardWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 8,
+                          height: 4,
                         ),
                         Text(
                           title,

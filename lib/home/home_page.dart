@@ -12,22 +12,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  var movies = [1, 2];
+  var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: null,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 1,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  children: movies
-                      .map((e) => Expanded(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: movies
+                      .map((e) => Container(
+                        width: 240,
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
                             image:
@@ -39,9 +35,6 @@ class _HomePageState extends State<HomePage> {
                             }),
                       ))
                       .toList(),
-                ),
-              )
-            ],
           ),
         ));
   }
