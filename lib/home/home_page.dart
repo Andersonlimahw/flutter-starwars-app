@@ -1,9 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/core.dart';
-import 'package:lemonstarwars/home/widgets/app_bar/app_bar_widget.dart';
+import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 
 class HomePage extends StatefulWidget {
