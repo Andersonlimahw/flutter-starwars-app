@@ -26,7 +26,7 @@ class AppBarWidget extends PreferredSize {
                               image: AssetImage(AppImages.banner)),
                         ),
                         child: Align(
-                            alignment: Alignment(-0.8, 1.3),
+                            alignment: Alignment(-0.9, 1.4),
                             child: Text.rich((TextSpan(
                                 text: title,
                                 style: AppTextStyles.headingStarWarsSecondary,

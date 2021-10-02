@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(title: "Movies",),
+        appBar: AppBarWidget(title: "",),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(
