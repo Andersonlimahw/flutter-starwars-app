@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(
             scrollDirection: Axis.horizontal,
-            physics: NeverScrollableScrollPhysics(),
             children: movies
                       .map((e) => Container(
                         width: 240,

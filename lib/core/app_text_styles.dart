@@ -53,6 +53,12 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+  
+  static final TextStyle bodyBoldSecondary = GoogleFonts.robotoMono(
+    color: AppColors.secondaryTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
 
   static final TextStyle bodyLight = GoogleFonts.robotoMono(
     color: AppColors.secondaryTextColor,

@@ -51,7 +51,7 @@ class MovieCardWidget extends StatelessWidget {
                         ),
                         Text(
                           title,
-                          style: AppTextStyles.bodyBoldStarWarsSecondary,
+                          style: AppTextStyles.bodyBoldSecondary,
                         ),
                       ],
                     ),
