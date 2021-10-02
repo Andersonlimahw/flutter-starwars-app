@@ -114,6 +114,14 @@ class AppTextStyles {
     color: AppColors.primaryColorDark,
     fontSize: 32,
     fontWeight: FontWeight.normal,
+  
+    shadows: [
+      Shadow(
+        color:  Colors.black.withOpacity(0.5), 
+        blurRadius: 5,
+        offset: Offset(10, 5)
+      ),   
+    ] 
   );
 
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
@@ -121,6 +129,13 @@ class AppTextStyles {
     fontSize: 32,
     fontWeight: FontWeight.normal,   
     fontStyle : FontStyle.italic,
+    shadows: [
+      Shadow(
+        color:  Colors.black.withOpacity(0.9), 
+        blurRadius: 5,
+        offset: Offset(10, 5)
+      ),   
+    ] 
   );
 
   static final TextStyle headingMediumStarWars = GoogleFonts.pollerOne(
@@ -157,6 +172,13 @@ class AppTextStyles {
     color: AppColors.secondaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.normal,
+  );
+
+  static final TextStyle bodyStarWarsSmall = GoogleFonts.pollerOne(
+    color: AppColors.primaryColorDark,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.italic
   );
 
   static final TextStyle bodyLightStarWarsSmallSecondary = GoogleFonts.pollerOne(

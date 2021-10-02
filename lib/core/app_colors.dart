@@ -8,4 +8,5 @@ class AppColors {
   static const Color primaryTextColor = Color(0xFF212121);
   static const Color secondaryTextColor = Color(0xFFF1F1F1);
   static const Color dividerColor = Color(0xFFBDBDBD);  
+  static const Color mirrorSecondary = Color(0x41F1F0F0);  
 }

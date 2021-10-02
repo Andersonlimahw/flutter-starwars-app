@@ -39,10 +39,12 @@ class AppBarWidget extends PreferredSize {
                           left: 16,
                           bottom: 16,
                           child: Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),                           
                             decoration: BoxDecoration(
+                                // color: AppColors.mirrorSecondary,
                                 border: Border.all(
-                                    color: AppColors.secondaryTextColor)),
+                                    color: Colors.transparent
+                                 )),
                             child: Text.rich((TextSpan(
                                 text: title,
                                 style: AppTextStyles.headingStarWarsSecondary,
