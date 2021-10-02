@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
+import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/home/widgets/app_bar/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 
@@ -18,7 +19,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(title: "",),
+        appBar: AppBarWidget(
+          title: "Star wars",
+          subtitle: "Movies",
+          image: AppImages.banner,
+        ),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(

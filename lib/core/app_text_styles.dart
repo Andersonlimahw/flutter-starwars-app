@@ -6,7 +6,7 @@ import 'app_colors.dart';
 class AppTextStyles {
 
   static final TextStyle splashTitle = GoogleFonts.pollerOne(
-    color: Colors.white,
+    color: AppColors.secondaryTextColor,
     fontSize: 80,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.italic
@@ -32,13 +32,13 @@ class AppTextStyles {
 
   static final TextStyle heading = GoogleFonts.robotoMono(
     color: AppColors.primaryColorDark,
-    fontSize: 40,
+    fontSize: 32,
     fontWeight: FontWeight.w600,
   );
 
   static final TextStyle headingSecondary = GoogleFonts.robotoMono(
     color: AppColors.secondaryTextColor,
-    fontSize: 40,
+    fontSize: 32,
     fontWeight: FontWeight.w600,
   );
 
@@ -74,8 +74,8 @@ class AppTextStyles {
 
   // Star Wars: Font
   static final TextStyle appBarTitle = GoogleFonts.pollerOne(
-    color: Colors.white,
-    fontSize: 40,
+    color: AppColors.secondaryTextColor,
+    fontSize: 32,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.italic
   );
@@ -94,14 +94,14 @@ class AppTextStyles {
 
   static final TextStyle headingStarWars = GoogleFonts.pollerOne(
     color: AppColors.primaryColorDark,
-    fontSize: 40,
-    fontWeight: FontWeight.w600,
+    fontSize: 32,
+    fontWeight: FontWeight.normal,
   );
 
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
-    fontSize: 40,
-    fontWeight: FontWeight.w600,
+    fontSize: 32,
+    fontWeight: FontWeight.normal,   
   );
 
   static final TextStyle headingMediumStarWars = GoogleFonts.pollerOne(
@@ -123,15 +123,29 @@ class AppTextStyles {
   );
 
   static final TextStyle bodyBoldStarWarsSecondary = GoogleFonts.pollerOne(
-    color: Colors.white,
+    color: AppColors.secondaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
   static final TextStyle bodyLightStarWars = GoogleFonts.pollerOne(
-    color: Colors.white,
+    color: AppColors.secondaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.normal,
+  );
+
+  static final TextStyle bodyLightStarWarsSmallSecondary = GoogleFonts.pollerOne(
+    color: AppColors.secondaryTextColor,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.italic
+  );
+
+  static final TextStyle bodyLightStarWarsSmallPrimary = GoogleFonts.pollerOne(
+    color: AppColors.primaryColorLight,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.italic
   );
 
 }
