@@ -22,46 +22,49 @@ class MovieCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          child: Stack(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8, 
-                            vertical: 8,
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            child: Stack(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 4,
                           ),
-                          height: 300,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: NetworkImage(image)),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8, 
+                              vertical: 8,
+                            ),
+                            height: 300,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(image: NetworkImage(image)),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          title,
-                          style: AppTextStyles.bodyBoldSecondary,
-                        ),
-                      ],
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            title,
+                            style: AppTextStyles.bodyBoldSecondary,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -10,9 +10,10 @@ class AppBarWidget extends PreferredSize {
   final String image;
 
   AppBarWidget(
-      {this.title = "",
-      this.subtitle = "",
-      this.image = "assets/images/banner.jpg"})
+      { this.title = "",
+        this.subtitle = "",
+        this.image = "assets/images/banner.jpg",
+      })
       : super(
             preferredSize: Size.fromHeight(350),
             child: SafeArea(
@@ -36,12 +37,12 @@ class AppBarWidget extends PreferredSize {
                       ),
                       Positioned(
                           left: 16,
-                          top: 16,
+                          bottom: 16,
                           child: Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                    color: Colors.transparent)),
+                                    color: AppColors.secondaryTextColor)),
                             child: Text.rich((TextSpan(
                                 text: title,
                                 style: AppTextStyles.headingStarWarsSecondary,
