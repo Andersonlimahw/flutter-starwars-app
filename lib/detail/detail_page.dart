@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/detail/widgets/movie_detail_widget.dart';
+import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -44,23 +45,13 @@ class _DetailPageState extends State<DetailPage> {
         Navigator.pop(context);
       }
     }
+   
     
-    _returnImagePath(int id) {
-      switch(id) {
-        case 1:
-          return AppImages.newHope;
-        case 2:
-          return AppImages.newHope;
-        default: 
-        return AppImages.thumb;
-      }
-    };
-
     return Scaffold(
         appBar: AppBarWidget(
           title: "A New Hope",
           subtitle: "Episode: 1",
-          image: _returnImagePath(1),
+          image: ReturnMovieImage(id: 1).banner,
         ),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),

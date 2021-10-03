@@ -43,7 +43,11 @@ class MovieCardWidget extends StatelessWidget {
                             ),
                             height: 300,
                             decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(image)),
+                              image: DecorationImage(
+                                image: AssetImage(image),
+                                fit: BoxFit.fill,
+                                alignment: Alignment.center
+                              ),
                             ),
                           ),
                           SizedBox(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/detail/detail_page.dart';
+import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   final pageController = PageController();
-
+    
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarWidget(
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
-                            image: AppImages.thumb,
+                            image: ReturnMovieImage(id: 1).banner,
                             title: "A New Hope",
                             releaseDate: "25/05/1977",
                             onTap: () {
