@@ -44,12 +44,23 @@ class _DetailPageState extends State<DetailPage> {
         Navigator.pop(context);
       }
     }
+    
+    _returnImagePath(int id) {
+      switch(id) {
+        case 1:
+          return AppImages.newHope;
+        case 2:
+          return AppImages.newHope;
+        default: 
+        return AppImages.thumb;
+      }
+    };
 
     return Scaffold(
         appBar: AppBarWidget(
           title: "A New Hope",
           subtitle: "Episode: 1",
-          image: AppImages.newHope,
+          image: _returnImagePath(1),
         ),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
