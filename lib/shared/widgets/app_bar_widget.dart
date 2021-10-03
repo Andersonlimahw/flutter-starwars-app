@@ -9,12 +9,11 @@ class AppBarWidget extends PreferredSize {
   final String subtitle;
   final String image;
 
-  AppBarWidget(
-      { this.title = "",
-        this.subtitle = "",
-        this.image = "assets/images/banner.jpg",
-      })
-      : super(
+  AppBarWidget({
+    this.title = "",
+    this.subtitle = "",
+    this.image = "assets/images/banner.jpg",
+  }) : super(
             preferredSize: Size.fromHeight(350),
             child: SafeArea(
               top: true,
@@ -34,24 +33,23 @@ class AppBarWidget extends PreferredSize {
                                 fit: BoxFit.fill, image: AssetImage(image)),
                           ),
                         ),
-                      ),
+                      ),                   
                       Positioned(
                           left: 16,
                           bottom: 16,
                           child: Container(
-                            padding: const EdgeInsets.all(8),                           
+                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 // color: AppColors.mirrorSecondary,
-                                border: Border.all(
-                                    color: Colors.transparent
-                                 )),
+                                border: Border.all(color: Colors.transparent)),
                             child: Text.rich((TextSpan(
                                 text: title,
                                 style: AppTextStyles.headingStarWarsSecondary,
                                 children: [
                                   TextSpan(
                                     text: "\n$subtitle",
-                                    style: AppTextStyles.bodyLightStarWarsSmallSecondary,
+                                    style: AppTextStyles
+                                        .bodyLightStarWarsSmallSecondary,
                                   ),
                                 ]))),
                           ))

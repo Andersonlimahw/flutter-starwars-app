@@ -113,11 +113,11 @@ class AppTextStyles {
   static final TextStyle headingStarWars = GoogleFonts.pollerOne(
     color: AppColors.primaryColorDark,
     fontSize: 32,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w600,
   
     shadows: [
       Shadow(
-        color:  Colors.black.withOpacity(0.5), 
+        color:  Colors.black.withOpacity(0.9), 
         blurRadius: 5,
         offset: Offset(10, 5)
       ),   
@@ -127,13 +127,13 @@ class AppTextStyles {
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
     fontSize: 32,
-    fontWeight: FontWeight.normal,   
+    fontWeight: FontWeight.w600,   
     fontStyle : FontStyle.italic,
     shadows: [
       Shadow(
         color:  Colors.black.withOpacity(0.9), 
-        blurRadius: 5,
-        offset: Offset(10, 5)
+        blurRadius: 2,
+        offset: Offset(6, 2)
       ),   
     ] 
   );
