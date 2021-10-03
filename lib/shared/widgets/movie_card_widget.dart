@@ -25,6 +25,7 @@ class MovieCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
+            padding: const EdgeInsets.only(top: 16),
             child: Stack(
               children: [
                 Row(

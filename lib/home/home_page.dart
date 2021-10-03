@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                             title: "A New Hope",
                             releaseDate: "25/05/1977",
                             onTap: () {
-                              Navigator.pushReplacement(context, 
+                              Navigator.push(context, 
                                 MaterialPageRoute(builder: (context) => 
                                   DetailPage()
                                 )

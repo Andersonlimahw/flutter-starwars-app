@@ -43,32 +43,6 @@ class MovieDetailWidget extends StatelessWidget {
               description: "New hope description",
             ),         
             SizedBox(
-              height: 8,
-            ),
-            // TODO: Buttons with actions
-            Container(
-              height: 60,
-              padding: const EdgeInsets.all(8),
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "Save", 
-                    style: AppTextStyles.bodyLightStarWarsSmallSecondary,
-                  ),
-                  Text(
-                    "Like", 
-                    style: AppTextStyles.bodyLightStarWarsSmallSecondary,
-                  ),
-                  Text(
-                    "Share", 
-                    style: AppTextStyles.bodyLightStarWarsSmallSecondary,
-                  ),
-                ],
-              ),
-            ),
-             SizedBox(
               height: 24,
             ),
           ],

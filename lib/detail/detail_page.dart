@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/core.dart';
@@ -15,6 +17,22 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    
+    void _onItemTapped(int index) {
+      print("_onItemTapped $index");
+      //Notes button:
+      if(index == 0) {
+        print("_onItemTapped $index, TODO: Share movie informations");
+      }
+      if(index == 1) {
+        print("_onItemTapped $index, TODO: Notes");
+      }
+      // Back button
+      if(index == 2) {
+        Navigator.pop(context);
+      }
+    }
+
     return Scaffold(
         appBar: AppBarWidget(
           title: "A New Hope",
@@ -30,6 +48,19 @@ class _DetailPageState extends State<DetailPage> {
               child: MovieDetailWidget(),
             )
           ]),
-        ));
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.arrow_back_ios), label: ""),
+          ],
+          selectedItemColor: AppColors.primaryColorDark,           
+          unselectedItemColor: AppColors.secondaryTextColor,
+          onTap: _onItemTapped,
+          backgroundColor: AppColors.primaryTextColor,
+          iconSize: 18,
+        )
+      );
   }
 }
