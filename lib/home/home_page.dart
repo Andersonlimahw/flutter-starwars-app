@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if(controller.state == HomeState.error) {
+    if(controller.state == HomeState.success) {
       return Scaffold(
         appBar: AppBarWidget(
           title: "Star wars",
