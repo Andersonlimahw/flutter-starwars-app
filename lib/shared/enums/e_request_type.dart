@@ -1,4 +1,4 @@
-enum ERquestType {
+enum ERequestType {
   Get,
   Post, 
   Put, 

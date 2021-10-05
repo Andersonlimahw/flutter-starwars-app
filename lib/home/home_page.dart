@@ -26,11 +26,10 @@ class _HomePageState extends State<HomePage> {
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
-        var paths = [AppImages.banner];
-        Share.shareFiles(paths,
-            subject: "Poster Star Wars",
-            text:
-                "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).");
+        var poster = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf10EbELVFfXyWKu_C1Xrk0kAsYR6i_369rRrJlVeyMoBwLBChCuXJWQesu3iUeSfLBMQ&usqp=CAU';
+        Share.share(
+                "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).\n $poster", 
+                subject: "Poster Star Wars",);
         break;
       case 1:
         print("_onItemTapped: $index, TODO: Menu");
@@ -70,14 +69,14 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             children: controller.movies!
                 .map((element) => Container(
-                      width: 160,
-                      height: 200,
+                      width: 200,
+                      height: 240,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 8),
+                          vertical: 8, horizontal: 4),
                       child: MovieCardWidget(
                           image: ReturnMovieImage(id: element.episode_id).banner,
                           title: element.title,
-                          cardHeigth: 200,
+                          cardHeigth: 240,
                           onTap: () {
                             Navigator.push(
                                 context,

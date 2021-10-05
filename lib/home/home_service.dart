@@ -12,7 +12,7 @@ class HomeService {
     print("HomeService:getMovies(), Loading");
     // Request:
     final url = "films";
-    final service = await BaseService(url: url, method: ERquestType.Get);
+    final service = await BaseService(url: url, method: ERequestType.Get);
     final response = await service.get();    
     
     // Translation:

@@ -20,73 +20,73 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle title = GoogleFonts.robotoMono(
+  static final TextStyle title = GoogleFonts.roboto(
     color: AppColors.primaryTextColor,
     fontSize: 20,
     fontWeight: FontWeight.w400,
   );
 
-  static final TextStyle titleBold = GoogleFonts.robotoMono(
+  static final TextStyle titleBold = GoogleFonts.roboto(
     color: AppColors.primaryTextColor,
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle heading = GoogleFonts.robotoMono(
+  static final TextStyle heading = GoogleFonts.roboto(
     color: AppColors.primaryColorDark,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle headingSecondary = GoogleFonts.robotoMono(
+  static final TextStyle headingSecondary = GoogleFonts.roboto(
     color: AppColors.secondaryTextColor,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle headingAccent = GoogleFonts.robotoMono(
+  static final TextStyle headingAccent = GoogleFonts.roboto(
     color: AppColors.accentColor,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle headingMedium = GoogleFonts.robotoMono(
+  static final TextStyle headingMedium = GoogleFonts.roboto(
     color: AppColors.primaryColorDark,
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
 
-  static final TextStyle headingMediumSecondary = GoogleFonts.robotoMono(
+  static final TextStyle headingMediumSecondary = GoogleFonts.roboto(
     color: AppColors.secondaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
   
-  static final TextStyle body = GoogleFonts.robotoMono(
+  static final TextStyle body = GoogleFonts.roboto(
     color: AppColors.primaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
 
-  static final TextStyle bodySecondary = GoogleFonts.robotoMono(
+  static final TextStyle bodySecondary = GoogleFonts.roboto(
     color: AppColors.secondaryTextColor,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.normal,
   );
   
-  static final TextStyle bodyBold = GoogleFonts.robotoMono(
+  static final TextStyle bodyBold = GoogleFonts.roboto(
     color: AppColors.primaryTextColor,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
   );
   
-  static final TextStyle bodyBoldSecondary = GoogleFonts.robotoMono(
+  static final TextStyle bodyBoldSecondary = GoogleFonts.roboto(
     color: AppColors.secondaryTextColor,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
-  static final TextStyle bodyLight = GoogleFonts.robotoMono(
+  static final TextStyle bodyLight = GoogleFonts.roboto(
     color: AppColors.secondaryTextColor,
     fontSize: 14,
     fontWeight: FontWeight.normal,
@@ -128,7 +128,7 @@ class AppTextStyles {
 
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: FontWeight.w600,   
     fontStyle : FontStyle.italic,
     wordSpacing: 4,    

@@ -45,7 +45,8 @@ class MovieCardWidget extends StatelessWidget {
                               image: DecorationImage(
                                 image: AssetImage(image),
                                 fit: BoxFit.fill,
-                                alignment: Alignment.center
+                                alignment: Alignment.topCenter,
+                                repeat: ImageRepeat.noRepeat
                               ),
                             ),
                           ),
@@ -54,7 +55,7 @@ class MovieCardWidget extends StatelessWidget {
                           ),
                           Text(
                             title,
-                            style: AppTextStyles.bodyBoldSecondary,
+                            style: AppTextStyles.bodySecondary,
                           ),
                         ],
                       ),

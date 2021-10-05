@@ -37,7 +37,7 @@ class AppBarWidget extends PreferredSize {
                         ),
                       ),
                       Positioned(
-                          left: 16,
+                          left: 8,
                           bottom: 16,
                           child: Container(
                             padding: const EdgeInsets.all(8),

@@ -2,17 +2,13 @@ import 'package:lemonstarwars/core/app_images.dart';
 
 class ReturnMovieImage {  
   String banner = AppImages.newHope;
-  
+  String path = "assets/images/movies";
+
   ReturnMovieImage({ required int id }) {
-    switch (id) {
-        case 1:
-          banner = AppImages.newHope;          
-          break;
-        case 2:
-          banner = AppImages.newHope;          
-          break;
-        default:
-          banner = AppImages.newHope;          
-      }
+    if(id >= 1) {
+      banner = "$path/$id.jpg";
+    } else {
+      banner = AppImages.newHope;   
+    }
   } 
 }

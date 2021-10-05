@@ -6,11 +6,11 @@ import 'package:lemonstarwars/shared/enums/e_request_type.dart';
 class BaseService {
   String baseUrl = "https://swapi.dev/api";
   final String url;
-  final ERquestType method;
+  final ERequestType method;
   String get finalUrl => "$baseUrl/$url";
 
   BaseService({required this.url, required this.method})
-      : assert(url.length >= 3, method == ERquestType.Get) {
+      : assert(url.length >= 3, method == ERequestType.Get) {
         print("BaseService(): Initialized with url: $url, method: $method, finalUrl:  $finalUrl");
       }
 
