@@ -14,7 +14,7 @@ class AppBarWidget extends PreferredSize {
       {this.title = "",
       this.subtitle = "",
       this.image = "assets/images/banner.jpg",
-      this.heigth = 320})
+      this.heigth = 280})
       : super(
             preferredSize: Size.fromHeight(heigth),
             child: SafeArea(

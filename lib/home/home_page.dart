@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/detail/detail_page.dart';
+import 'package:lemonstarwars/profile/profile_page.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/loading_widget.dart';
@@ -22,24 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   final controller = HomeController();
 
-  void _onItemTapped(int index) {
-    switch (index) {
-      case 0:
-        var poster = 'https://wallpaperaccess.com/full/3782150.jpg';
-        Share.share(
-                "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).\n $poster", 
-                subject: "Poster Star Wars",);
-        break;
-      case 1:
-        print("_onItemTapped: $index, TODO: Menu");
-        break;
-      case 2:
-        print("_onItemTapped: $index, TODO: Profile");
-        break;
-      default:
-        print("_onItemTapped $index, Not implemented");
-    }
-  }
+  
 
   @override
   void initState() {
@@ -54,6 +38,28 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    void _onItemTapped(int index) {
+      switch (index) {
+        case 0:
+          var poster = 'https://wallpaperaccess.com/full/3782150.jpg';
+          Share.share(
+                  "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).\n $poster", 
+                  subject: "Poster Star Wars",);
+          break;
+        case 1:
+          print("_onItemTapped: $index, Profile");
+           Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => 
+                  ProfilePage()
+              ));
+          break;
+        default:
+          print("_onItemTapped $index, Not implemented");
+      }
+   }
+
     if(controller.state == HomeState.success) {
       return Scaffold(
         appBar: AppBarWidget(
@@ -70,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                       width: 282,
                       height: 162,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 32, horizontal: 8),
+                          vertical: 72, horizontal: 8),
                       child: MovieCardWidget(
                           image: ReturnMovieImage(id: element.episode_id).banner,
                           title: element.title,
@@ -92,10 +98,9 @@ class _HomePageState extends State<HomePage> {
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
             ],
-            selectedItemColor: AppColors.primaryColorDark,
+            selectedItemColor: AppColors.secondaryTextColor,
             unselectedItemColor: AppColors.secondaryTextColor,
             onTap: _onItemTapped,
             backgroundColor: AppColors.primaryTextColor,

@@ -77,11 +77,11 @@ class _DetailPageState extends State<DetailPage> {
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
               BottomNavigationBarItem(
                   icon: Icon(Icons.arrow_back_ios), label: ""),
             ],
-            selectedItemColor: AppColors.primaryColorDark,
+            selectedItemColor: AppColors.secondaryTextColor,
             unselectedItemColor: AppColors.secondaryTextColor,
             onTap: _onItemTapped,
             backgroundColor: AppColors.primaryTextColor,
