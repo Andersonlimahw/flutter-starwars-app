@@ -21,10 +21,6 @@ class MovieDetailWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              "Description", 
-              style: AppTextStyles.headingSecondary,
-            ),
             Divider(
               color: AppColors.dividerColor,
             ), 
