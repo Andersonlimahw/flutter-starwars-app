@@ -14,17 +14,17 @@ class AppBarWidget extends PreferredSize {
     this.subtitle = "",
     this.image = "assets/images/banner.jpg",
   }) : super(
-            preferredSize: Size.fromHeight(350),
+            preferredSize: Size.fromHeight(380),
             child: SafeArea(
               top: true,
               child: Container(
-                  height: 350,
+                  height: 380,
                   padding: const EdgeInsets.all(0.0),
                   child: Stack(
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: 350,
+                          height: 380,
                           width: double.maxFinite,
                           alignment: Alignment.center,
                           foregroundDecoration: BoxDecoration(

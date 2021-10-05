@@ -5,6 +5,7 @@ import 'package:lemonstarwars/detail/detail_page.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,7 +18,27 @@ class _HomePageState extends State<HomePage> {
   @override
   var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   final pageController = PageController();
-    
+
+  void _onItemTapped(int index) {
+      print("_onItemTapped $index");
+      //Notes button:
+      if(index == 0) {
+        var paths = [AppImages.banner];       
+        Share.shareFiles(
+         paths, 
+         subject: "Poster Star Wars",
+         text: "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :)."
+        );
+      }
+      if(index == 1) {
+        print("_onItemTapped $index, TODO: Menu");
+      }
+      // Back button
+      if(index == 2) {
+        print("_onItemTapped $index, TODO: Profile");
+      }
+    }
+      
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarWidget(
@@ -32,13 +53,15 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             children: movies
                       .map((e) => Container(
-                        width: 240,
-                        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                        width: 180,
+                        height: 220,
+                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                         child: MovieCardWidget(
                             url: "https://swapi.dev/api/films/1",
                             image: ReturnMovieImage(id: 1).banner,
                             title: "A New Hope",
                             releaseDate: "25/05/1977",
+                            cardHeigth : 220,
                             onTap: () {
                               Navigator.push(context, 
                                 MaterialPageRoute(builder: (context) => 
@@ -49,6 +72,22 @@ class _HomePageState extends State<HomePage> {
                       ))
                       .toList(),
           ),
-        ));
+        ),
+        bottomNavigationBar: SafeArea(
+          bottom: true,
+          child: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+            ],
+            selectedItemColor: AppColors.primaryColorDark,           
+            unselectedItemColor: AppColors.secondaryTextColor,
+            onTap: _onItemTapped,
+            backgroundColor: AppColors.primaryTextColor,
+            iconSize: 18,
+          ),
+        )
+        );
   }
 }

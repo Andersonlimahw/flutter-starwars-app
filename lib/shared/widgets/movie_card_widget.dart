@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:lemonstarwars/core/app_text_styles.dart';
 
 class MovieCardWidget extends StatelessWidget {
@@ -7,6 +8,7 @@ class MovieCardWidget extends StatelessWidget {
   final String title;
   final String releaseDate;
   final VoidCallback onTap;
+  final double? cardHeigth;
 
   const MovieCardWidget({
     Key? key,
@@ -15,6 +17,7 @@ class MovieCardWidget extends StatelessWidget {
     required this.title,
     required this.releaseDate,
     required this.onTap,
+    this.cardHeigth = 180,
   }) : super(key: key);
 
   @override
@@ -41,7 +44,7 @@ class MovieCardWidget extends StatelessWidget {
                               horizontal: 8, 
                               vertical: 8,
                             ),
-                            height: 300,
+                            height: cardHeigth,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage(image),

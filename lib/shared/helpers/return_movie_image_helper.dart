@@ -14,7 +14,5 @@ class ReturnMovieImage {
         default:
           banner = AppImages.newHope;          
       }
-  }
-
- 
+  } 
 }

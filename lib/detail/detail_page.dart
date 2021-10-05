@@ -21,7 +21,6 @@ class _DetailPageState extends State<DetailPage> {
       print("_onItemTapped $index");
       //Notes button:
       if(index == 0) {
-        print("_onItemTapped $index, TODO: Share movie informations");
         Share.share(
           "Olá, olha oque eu encontrei desse filme da franquia Star Wars"+
           "\n\nTítulo oficial"+
@@ -38,7 +37,7 @@ class _DetailPageState extends State<DetailPage> {
         );
       }
       if(index == 1) {
-        print("_onItemTapped $index, TODO: Notes");
+        print("_onItemTapped $index, TODO: Menu");
       }
       // Back button
       if(index == 2) {
@@ -68,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.arrow_back_ios), label: ""),
             ],
             selectedItemColor: AppColors.primaryColorDark,           
