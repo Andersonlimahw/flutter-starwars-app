@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       width: 282,
                       height: 162,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 32, horizontal: 24),
+                          vertical: 32, horizontal: 8),
                       child: MovieCardWidget(
                           image: ReturnMovieImage(id: element.episode_id).banner,
                           title: element.title,

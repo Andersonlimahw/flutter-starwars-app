@@ -21,9 +21,9 @@ class MovieDetailWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Divider(
-              color: AppColors.dividerColor,
-            ), 
+            SizedBox(
+              height: 24,
+            ),
             ListItemWidget(
               title: "Oficial Title",
               description: movie.title,

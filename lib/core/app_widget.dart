@@ -7,7 +7,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "LemonStarWars", 
+      title: "Star Wars Movies", 
       home: SplashPage(),
     );
   }

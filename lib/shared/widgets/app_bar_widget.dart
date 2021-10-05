@@ -8,7 +8,7 @@ class AppBarWidget extends PreferredSize {
   final String title;
   final String subtitle;
   final String image;
-  double heigth;
+  final double heigth;
 
   AppBarWidget(
       {this.title = "",
@@ -20,6 +20,7 @@ class AppBarWidget extends PreferredSize {
             child: SafeArea(
               top: true,
               child: Container(
+                  color: Colors.black,
                   height: heigth,
                   padding: const EdgeInsets.all(0.0),
                   child: Stack(
