@@ -16,36 +16,34 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    
     void _onItemTapped(int index) {
-      print("_onItemTapped $index");
-      //Notes button:
-      if(index == 0) {
-        Share.share(
-          "Olá, olha oque eu encontrei desse filme da franquia Star Wars"+
-          "\n\nTítulo oficial"+
-          "\nA New Hope"+
-          "\n\nDiretores"+
-          "\n..."+
-          "\n\nProdutores"+
-          "\n..."+
-          "\n\nData de lançamento"+
-          "\n..."+          
-          "\n\nResumo"+
-          "\n...",
-          subject: "Star Wars | A New Hope"
-        );
-      }
-      if(index == 1) {
-        print("_onItemTapped $index, TODO: Menu");
-      }
-      // Back button
-      if(index == 2) {
-        Navigator.pop(context);
+      switch (index) {
+        case 0:
+          Share.share(
+              "Olá, olha oque eu encontrei desse filme da franquia Star Wars" +
+                  "\n\nTítulo oficial" +
+                  "\nA New Hope" +
+                  "\n\nDiretores" +
+                  "\n..." +
+                  "\n\nProdutores" +
+                  "\n..." +
+                  "\n\nData de lançamento" +
+                  "\n..." +
+                  "\n\nResumo" +
+                  "\n...",
+              subject: "Star Wars | A New Hope");
+          break;
+        case 1: 
+          print("_onItemTapped $index, TODO: Menu");
+          break;
+        case 2: 
+          Navigator.pop(context);
+          break;
+        default:
+          print("_onItemTapped $index, Not implemented");
       }
     }
-   
-    
+
     return Scaffold(
         appBar: AppBarWidget(
           title: "A New Hope",
@@ -54,8 +52,7 @@ class _DetailPageState extends State<DetailPage> {
         ),
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
-          child: ListView(scrollDirection: Axis.vertical, 
-          children: [
+          child: ListView(scrollDirection: Axis.vertical, children: [
             Container(
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
               child: MovieDetailWidget(),
@@ -68,15 +65,15 @@ class _DetailPageState extends State<DetailPage> {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.arrow_back_ios), label: ""),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.arrow_back_ios), label: ""),
             ],
-            selectedItemColor: AppColors.primaryColorDark,           
+            selectedItemColor: AppColors.primaryColorDark,
             unselectedItemColor: AppColors.secondaryTextColor,
             onTap: _onItemTapped,
             backgroundColor: AppColors.primaryTextColor,
             iconSize: 18,
           ),
-        )
-      );
+        ));
   }
 }

@@ -4,8 +4,12 @@ import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/detail/detail_page.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
+import 'package:lemonstarwars/shared/widgets/loading_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 import 'package:share_plus/share_plus.dart';
+
+import 'home_controller.dart';
+import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,32 +19,45 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
   var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   final pageController = PageController();
+  final controller = HomeController();
 
   void _onItemTapped(int index) {
-      print("_onItemTapped $index");
-      //Notes button:
-      if(index == 0) {
-        var paths = [AppImages.banner];       
-        Share.shareFiles(
-         paths, 
-         subject: "Poster Star Wars",
-         text: "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :)."
-        );
-      }
-      if(index == 1) {
-        print("_onItemTapped $index, TODO: Menu");
-      }
-      // Back button
-      if(index == 2) {
-        print("_onItemTapped $index, TODO: Profile");
-      }
+    switch (index) {
+      case 0:
+        var paths = [AppImages.banner];
+        Share.shareFiles(paths,
+            subject: "Poster Star Wars",
+            text:
+                "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).");
+        break;
+      case 1:
+        print("_onItemTapped: $index, TODO: Menu");
+        break;
+      case 2:
+        print("_onItemTapped: $index, TODO: Profile");
+        break;
+      default:
+        print("_onItemTapped $index, Not implemented");
     }
-      
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller.getMovies();
+    controller.stateNotifier.addListener(() {
+      setState(() {
+        
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    if(controller.state == HomeState.error) {
+      return Scaffold(
         appBar: AppBarWidget(
           title: "Star wars",
           subtitle: "Movies",
@@ -52,25 +69,25 @@ class _HomePageState extends State<HomePage> {
             controller: pageController,
             scrollDirection: Axis.horizontal,
             children: movies
-                      .map((e) => Container(
-                        width: 180,
-                        height: 220,
-                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                        child: MovieCardWidget(
-                            url: "https://swapi.dev/api/films/1",
-                            image: ReturnMovieImage(id: 1).banner,
-                            title: "A New Hope",
-                            releaseDate: "25/05/1977",
-                            cardHeigth : 220,
-                            onTap: () {
-                              Navigator.push(context, 
-                                MaterialPageRoute(builder: (context) => 
-                                  DetailPage()
-                                )
-                              );
-                            }),
-                      ))
-                      .toList(),
+                .map((e) => Container(
+                      width: 180,
+                      height: 220,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 8),
+                      child: MovieCardWidget(
+                          url: "https://swapi.dev/api/films/1",
+                          image: ReturnMovieImage(id: 1).banner,
+                          title: "A New Hope",
+                          releaseDate: "25/05/1977",
+                          cardHeigth: 220,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailPage()));
+                          }),
+                    ))
+                .toList(),
           ),
         ),
         bottomNavigationBar: SafeArea(
@@ -81,13 +98,18 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
             ],
-            selectedItemColor: AppColors.primaryColorDark,           
+            selectedItemColor: AppColors.primaryColorDark,
             unselectedItemColor: AppColors.secondaryTextColor,
             onTap: _onItemTapped,
             backgroundColor: AppColors.primaryTextColor,
             iconSize: 18,
           ),
-        )
-        );
+        ));
+    } else {
+      // TODO:  Adicionar página de error
+      return Scaffold(
+        body: LoadingWidget()
+      );
+    }
   }
 }
