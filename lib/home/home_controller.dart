@@ -14,9 +14,10 @@ class HomeController {
   void getMovies() async {
     print("HomeController:getMovies(), Loading");
     state = HomeState.loading;
-    // await Future.delayed(Duration(seconds: 2));
-    // TODO: set movies with response;
-    await service.getMovies();
+    await service.getMovies()
+    .then((result) => {
+      movies = result
+    });
     print("HomeController:getMovies(), Success");
     state = HomeState.success;
   }

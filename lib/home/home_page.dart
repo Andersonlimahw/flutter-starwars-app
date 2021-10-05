@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   final pageController = PageController();
   final controller = HomeController();
 
@@ -68,23 +68,23 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             controller: pageController,
             scrollDirection: Axis.horizontal,
-            children: movies
-                .map((e) => Container(
-                      width: 180,
-                      height: 220,
+            children: controller.movies!
+                .map((element) => Container(
+                      width: 160,
+                      height: 200,
                       margin: const EdgeInsets.symmetric(
                           vertical: 8, horizontal: 8),
                       child: MovieCardWidget(
-                          url: "https://swapi.dev/api/films/1",
-                          image: ReturnMovieImage(id: 1).banner,
-                          title: "A New Hope",
-                          releaseDate: "25/05/1977",
-                          cardHeigth: 220,
+                          image: ReturnMovieImage(id: element.episode_id).banner,
+                          title: element.title,
+                          cardHeigth: 200,
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DetailPage()));
+                                    builder: (context) => 
+                                    DetailPage(movie: element),
+                                ));
                           }),
                     ))
                 .toList(),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,31 +34,31 @@ class AppTextStyles {
 
   static final TextStyle heading = GoogleFonts.robotoMono(
     color: AppColors.primaryColorDark,
-    fontSize: 32,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
   static final TextStyle headingSecondary = GoogleFonts.robotoMono(
     color: AppColors.secondaryTextColor,
-    fontSize: 32,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
   static final TextStyle headingAccent = GoogleFonts.robotoMono(
     color: AppColors.accentColor,
-    fontSize: 32,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
   static final TextStyle headingMedium = GoogleFonts.robotoMono(
     color: AppColors.primaryColorDark,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
   );
 
   static final TextStyle headingMediumSecondary = GoogleFonts.robotoMono(
     color: AppColors.secondaryTextColor,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
   );
   
@@ -86,7 +88,7 @@ class AppTextStyles {
 
   static final TextStyle bodyLight = GoogleFonts.robotoMono(
     color: AppColors.secondaryTextColor,
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: FontWeight.normal,
   );
 
@@ -112,7 +114,7 @@ class AppTextStyles {
 
   static final TextStyle headingStarWars = GoogleFonts.pollerOne(
     color: AppColors.primaryColorDark,
-    fontSize: 32,
+    fontSize: 22,
     fontWeight: FontWeight.w600,
   
     shadows: [
@@ -126,9 +128,10 @@ class AppTextStyles {
 
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
-    fontSize: 32,
+    fontSize: 22,
     fontWeight: FontWeight.w600,   
     fontStyle : FontStyle.italic,
+    wordSpacing: 4,    
     shadows: [
       Shadow(
         color:  Colors.black.withOpacity(0.9), 

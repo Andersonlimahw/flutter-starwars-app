@@ -8,23 +8,25 @@ class AppBarWidget extends PreferredSize {
   final String title;
   final String subtitle;
   final String image;
+  double heigth;
 
-  AppBarWidget({
-    this.title = "",
-    this.subtitle = "",
-    this.image = "assets/images/banner.jpg",
-  }) : super(
-            preferredSize: Size.fromHeight(380),
+  AppBarWidget(
+      {this.title = "",
+      this.subtitle = "",
+      this.image = "assets/images/banner.jpg",
+      this.heigth = 320})
+      : super(
+            preferredSize: Size.fromHeight(heigth),
             child: SafeArea(
               top: true,
               child: Container(
-                  height: 380,
+                  height: heigth,
                   padding: const EdgeInsets.all(0.0),
                   child: Stack(
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: 380,
+                          height: heigth,
                           width: double.maxFinite,
                           alignment: Alignment.center,
                           foregroundDecoration: BoxDecoration(
@@ -33,7 +35,7 @@ class AppBarWidget extends PreferredSize {
                                 fit: BoxFit.fill, image: AssetImage(image)),
                           ),
                         ),
-                      ),                   
+                      ),
                       Positioned(
                           left: 16,
                           bottom: 16,
@@ -42,16 +44,21 @@ class AppBarWidget extends PreferredSize {
                             decoration: BoxDecoration(
                                 // color: AppColors.mirrorSecondary,
                                 border: Border.all(color: Colors.transparent)),
-                            child: Text.rich((TextSpan(
+                            child: Text.rich(                                   
+                              (TextSpan(
                                 text: title,
-                                style: AppTextStyles.headingStarWarsSecondary,
+                                style: AppTextStyles
+                                    .headingStarWarsSecondary,
                                 children: [
                                   TextSpan(
                                     text: "\n$subtitle",
                                     style: AppTextStyles
                                         .bodyLightStarWarsSmallSecondary,
                                   ),
-                                ]))),
+                                ]
+                                )
+                              ),                                
+                             ),
                           ))
                     ],
                   )),

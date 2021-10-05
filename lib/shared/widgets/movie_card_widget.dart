@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:lemonstarwars/core/app_text_styles.dart';
 
-class MovieCardWidget extends StatelessWidget {
-  final String url;
+class MovieCardWidget extends StatelessWidget {  
   final String image;
-  final String title;
-  final String releaseDate;
+  final String title;  
   final VoidCallback onTap;
   final double? cardHeigth;
 
   const MovieCardWidget({
-    Key? key,
-    required this.url,
+    Key? key,    
     required this.image,
-    required this.title,
-    required this.releaseDate,
+    required this.title,    
     required this.onTap,
     this.cardHeigth = 180,
   }) : super(key: key);
