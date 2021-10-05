@@ -6,7 +6,7 @@ class ReturnMovieImage {
 
   ReturnMovieImage({ required int id }) {
     if(id >= 1) {
-      banner = "$path/$id.jpg";
+      banner = "$path/$id.png";
     } else {
       banner = AppImages.newHope;   
     }

@@ -19,14 +19,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // var movies = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  final pageController = PageController();
+
   final controller = HomeController();
 
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
-        var poster = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf10EbELVFfXyWKu_C1Xrk0kAsYR6i_369rRrJlVeyMoBwLBChCuXJWQesu3iUeSfLBMQ&usqp=CAU';
+        var poster = 'https://wallpaperaccess.com/full/3782150.jpg';
         Share.share(
                 "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).\n $poster", 
                 subject: "Poster Star Wars",);
@@ -65,18 +64,17 @@ class _HomePageState extends State<HomePage> {
         body: Container(
           decoration: BoxDecoration(gradient: AppGradients.linear),
           child: ListView(
-            controller: pageController,
             scrollDirection: Axis.horizontal,
             children: controller.movies!
                 .map((element) => Container(
-                      width: 200,
-                      height: 240,
+                      width: 282,
+                      height: 162,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 4),
+                          vertical: 32, horizontal: 24),
                       child: MovieCardWidget(
                           image: ReturnMovieImage(id: element.episode_id).banner,
                           title: element.title,
-                          cardHeigth: 240,
+                          cardHeigth: 162,
                           onTap: () {
                             Navigator.push(
                                 context,

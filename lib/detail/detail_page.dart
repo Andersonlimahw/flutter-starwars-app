@@ -58,9 +58,7 @@ class _DetailPageState extends State<DetailPage> {
     }
 
     return Scaffold(
-        appBar: AppBarWidget(
-          title: widget.movie.title,
-          subtitle: "Episode: ${widget.movie.episode_id}",
+        appBar: AppBarWidget(          
           image: ReturnMovieImage(id: widget.movie.episode_id).banner,
         ),
         body: Container(

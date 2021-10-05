@@ -128,7 +128,7 @@ class AppTextStyles {
 
   static final TextStyle headingStarWarsSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: FontWeight.w600,   
     fontStyle : FontStyle.italic,
     wordSpacing: 4,    
@@ -186,7 +186,7 @@ class AppTextStyles {
 
   static final TextStyle bodyLightStarWarsSmallSecondary = GoogleFonts.pollerOne(
     color: AppColors.secondaryTextColor,
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
     fontStyle: FontStyle.italic
   );

@@ -41,7 +41,7 @@ class MovieCardWidget extends StatelessWidget {
                               vertical: 8,
                             ),
                             height: cardHeigth,
-                            decoration: BoxDecoration(
+                            decoration: BoxDecoration(                             
                               image: DecorationImage(
                                 image: AssetImage(image),
                                 fit: BoxFit.fill,
@@ -53,10 +53,10 @@ class MovieCardWidget extends StatelessWidget {
                           SizedBox(
                             height: 8,
                           ),
-                          Text(
-                            title,
-                            style: AppTextStyles.bodySecondary,
-                          ),
+                          // Text(
+                          //   "title",
+                          //   style: AppTextStyles.bodySecondary,
+                          // ),
                         ],
                       ),
                     ),
