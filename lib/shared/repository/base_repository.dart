@@ -122,5 +122,19 @@ class BaseRepository {
     await db.close();
     return result;
   }
+  
+   /**
+   * Insert a register e provided table
+  */
+  Future<int> clearTable({ required String tableName }) async {
+    // Get a reference to the database.
+    final db = await openDataBaseByName();   
+    final result = await db.delete(
+      tableName,            
+    );
+    print("BaseRepository.clearTable(tableName: $tableName): Success : $dbName.db, result: $result");
+    await db.close();
+    return result;
+  }
 
 }

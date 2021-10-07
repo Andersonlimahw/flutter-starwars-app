@@ -21,7 +21,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    super.initState();    
+    super.initState();   
+    // controller.clearTable();
     controller.getUser();
     controller.stateNotifier.addListener(() {
       setState(() {});
@@ -48,13 +49,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
     if (controller.state == ProfileState.success) {
       final user = controller.user!;
-      return Scaffold(
-          appBar: ProfileAppBarWidget(
-              image: AppImages.userProfileBanner,
-              title: "Hi, ${user.nickName}",
-              subtitle: "Welcome back.",
-              profileImage: user.image),
-          body: Container(
+
+      final viewMode = Container(
             decoration: BoxDecoration(gradient: AppGradients.linear),
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
             child: ListView(scrollDirection: Axis.vertical, children: [
@@ -83,7 +79,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ))
             ]),
-          ),
+          );
+
+      return Scaffold(
+          appBar: ProfileAppBarWidget(
+              image: AppImages.userProfileBanner,
+              title: "Hi, ${user.nickName}",
+              subtitle: "Welcome back.",
+              profileImage: user.image),
+          body: viewMode,
           bottomNavigationBar: SafeArea(
             bottom: true,
             child: BottomNavigationBar(

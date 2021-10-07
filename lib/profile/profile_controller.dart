@@ -25,7 +25,7 @@ class ProfileController {
           image: AppImages.userProfileAvatar,
           email: '...',
           name: 'Luke skywalker',
-          nickName: '...');
+          nickName: 'Luke');
       insertUser(user: defaultUser);
       user = await repository.getUser().then((value) => value);
       state = ProfileState.success;
@@ -52,6 +52,13 @@ class ProfileController {
       await repository.delete(id: userResult.id!, tableName: 'user');
       print("ProfileController.deleteUser(user: ${userResult.toString()}): Success");
     }
+    state = ProfileState.success;
+  }
+
+  void clearTable() async {
+    state = ProfileState.loading;
+    await repository.clearTable(tableName: 'user');
+    print("ProfileController.clearTable(tableName: user): Success");
     state = ProfileState.success;
   }
 }
