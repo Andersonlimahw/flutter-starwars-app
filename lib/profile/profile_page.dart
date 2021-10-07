@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lemonstarwars/profile/profile_controller.dart';
 import 'package:lemonstarwars/profile/widgets/profile_app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/list_item_widget.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
@@ -15,11 +16,16 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final controller = ProfileController();
+
   @override
   void initState() {  
-    super.initState();
+    super.initState();    
+    // controller.deleteUser();
+    // Future.delayed(Duration(seconds: 2));    
+    controller.getUser();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     void _onItemTapped(int index) {
