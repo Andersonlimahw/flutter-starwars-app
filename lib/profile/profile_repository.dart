@@ -8,7 +8,7 @@ class ProfileRepository  extends BaseRepository {
   
   Future<UserModel?> getUser() async {
     final maps = await this.ListByTable(tableName: 'user');
-    final list =  List.generate(maps.length, (i) {
+    final list = List.generate(maps.length, (i) {
       return UserModel(
         id: maps[i]['id'],
         name: maps[i]['name'],
@@ -17,7 +17,10 @@ class ProfileRepository  extends BaseRepository {
         nickName: maps[i]['nickName']
       );
     });
-    maps.length > 0 ? list.first : null;
+    if(maps.length > 0) {
+      return list.first;
+    }
+    return null;
   }
 
   Future<int> insertUser({ required UserModel user }) async {

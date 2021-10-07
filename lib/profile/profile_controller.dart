@@ -12,23 +12,25 @@ class ProfileController {
   UserModel? user;
   final repository = ProfileRepository();
 
-  Future<void> getUser() async {
+  void getUser() async {
     state = ProfileState.loading;
     print("ProfileController.getUser(): Starts");   
     user = await repository.getUser().then((value) => value);
-    // Insert Apenas para testes
+    // Insert Apenas para testes, TODO: Adicionar modo de criação de conta.
     if (user == null) {
+      state = ProfileState.loading;
       print(
           "ProfileController.getUser(): User not found, creating a new user with default values.");
       final defaultUser = UserModel(
           image: AppImages.userProfileAvatar,
-          email: 'lemon@starwars.com',
-          name: 'Anderson Lima',
-          nickName: 'Lemon');
+          email: '...',
+          name: 'Luke skywalker',
+          nickName: '...');
       insertUser(user: defaultUser);
       user = await repository.getUser().then((value) => value);
+      state = ProfileState.success;
     }
-    print("ProfileController.getUser(): Success");
+    print("ProfileController.getUser(): Success, user => ${user.toString()}");
     state = ProfileState.success;
   }
 
@@ -50,8 +52,6 @@ class ProfileController {
       await repository.delete(id: userResult.id!, tableName: 'user');
       print("ProfileController.deleteUser(user: ${userResult.toString()}): Success");
     }
-    
-
     state = ProfileState.success;
   }
 }

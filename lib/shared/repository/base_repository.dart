@@ -52,16 +52,6 @@ class BaseRepository {
     // Query the table for all The .
     final List<Map<String, dynamic>> maps = await db.query(tableName);
 
-    // TODO: Create Map by repository
-    // return List.generate(maps.length, (i) {
-    //   return Dog(
-    //     id: maps[i]['id'],
-    //     name: maps[i]['name'],
-    //     age: maps[i]['age'],
-    //   );
-    // });
-
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
     print("BaseRepository.ListByTable(tableName: $tableName): Success : maps => $maps");
     await db.close();
     return maps;
