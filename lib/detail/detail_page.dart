@@ -56,10 +56,12 @@ class _DetailPageState extends State<DetailPage> {
               subject: "Star Wars | ${widget.movie.title}");
           break;
         case 1:
+        
           print("_onItemTapped $index, Favorite");
-          controller.addMovieToFavorites(movie: widget.movie);
+          controller.toggleFavorite(movie: widget.movie);
           controller.returIsFavorite(id: widget.movie.episode_id);
           setState(() {});
+
           break;
         case 2:
           Navigator.pop(context);
@@ -98,7 +100,7 @@ class _DetailPageState extends State<DetailPage> {
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.share), label: "",),
-              BottomNavigationBarItem(icon: _isFavoriteIcon(), label: "", activeIcon: Icon(Icons.favorite)),
+              BottomNavigationBarItem(icon: _isFavoriteIcon(), label: "",),
               BottomNavigationBarItem(
                   icon: Icon(Icons.arrow_back_ios), label: ""),
             ],
