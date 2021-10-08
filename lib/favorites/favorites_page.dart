@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/detail/detail_page.dart';
 import 'package:lemonstarwars/favorites/favorites_state.dart';
+import 'package:lemonstarwars/home/home_page.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/list_item_widget.dart';
@@ -24,9 +25,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
   @override
   void initState() {
-    super.initState();   
+    super.initState();
     //controller.clearTable();
-    controller.getFavorites();    
+    controller.getFavorites();
     controller.stateNotifier.addListener(() {
       setState(() {});
     });
@@ -37,8 +38,12 @@ class _FavoritesPageState extends State<FavoritesPage> {
     void _onItemTapped(int index) {
       switch (index) {
         case 0:
-          print("_onItemTapped $index, TODO: Go Home");
-          break;       
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ));
+          break;
         case 1:
           Navigator.pop(context);
           break;
@@ -49,52 +54,49 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
     if (controller.state == FavoritesState.success) {
       final favorites = controller.favorites!;
-      
+
       return Scaffold(
           appBar: AppBarWidget(
-              image: AppImages.favoritesBanner,
-              title: "Favorites",
-              subtitle: "your favorites movies.",
+            image: AppImages.favoritesBanner,
+            title: "Favorites",
+            subtitle: "your favorites movies.",
           ),
           body: Container(
-          decoration: BoxDecoration(gradient: AppGradients.linear),
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            children: favorites
-                .map((element) => 
-                  Container(
-                      width: double.maxFinite,
-                      height: 160,
+            decoration: BoxDecoration(gradient: AppGradients.linear),
+            height: double.maxFinite,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: favorites
+                  .map(
+                    (element) => Container(
+                      height: 120,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 32),
-                      child: Expanded(
-                        flex: 1,
-                        child: ListItemWidget(
-                            image: ReturnMovieImage(id: element.episode_id).banner,
-                            title: element.title,
-                            description: "Episode: ${element.episode_id} | "+
-                                         "Date: ${element.release_date}",
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //           builder: (context) => 
-                            //           DetailPage(movie: element),
-                            //       ));
-                            // }
-                          ),
+                          vertical: 8, horizontal: 16),
+                      child: ListItemWidget(
+                        image: ReturnMovieImage(id: element.episode_id).banner,
+                        title: element.title,
+                        description: "Episode: ${element.episode_id} | " +
+                            "Year: ${DateTime.parse(element.release_date).year}",
+                        // onTap: () {
+                        //   Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //           builder: (context) =>
+                        //           DetailPage(movie: element),
+                        //       ));
+                        // }
                       ),
                     ),
-                 )
-                .toList(),
+                  )
+                  .toList(),
+            ),
           ),
-        ),
           bottomNavigationBar: SafeArea(
             bottom: true,
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),               
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.arrow_back_ios), label: ""),
               ],

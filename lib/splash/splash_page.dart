@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
 import 'package:lemonstarwars/core/app_text_styles.dart';
-import 'package:lemonstarwars/detail/detail_page.dart';
-import 'package:lemonstarwars/favorites/favorites_page.dart';
 import 'package:lemonstarwars/home/home_page.dart';
 
 class SplashPage extends StatelessWidget {
@@ -11,7 +9,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2)).then((_) => Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => FavoritesPage())));
+        context, MaterialPageRoute(builder: (context) => HomePage())));
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(gradient: AppGradients.linear),

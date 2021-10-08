@@ -8,7 +8,7 @@ class FavoriteRepository extends BaseRepository {
           defaultTableSql: MovieModel.generateCreateTable(name: 'favorites'),
         );
 
-  Future<List<MovieModel>?> listFavorites({required int id}) async {    
+  Future<List<MovieModel>?> listFavorites() async {    
     final maps = await this.ListByTable(tableName: 'favorites');    
     print("listFavorites => maps =>  $maps");
     final list = List.generate(maps.length, (i) {
@@ -24,6 +24,8 @@ class FavoriteRepository extends BaseRepository {
       );
     });
     if(maps.length > 0) {
+      
+      list.sort((a, b) => a.episode_id.compareTo(b.episode_id));
       print("Favorites movies : ${list.map((e) => {e.title, e.id })}");
       return list;
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/detail/detail_state.dart';
 import 'package:lemonstarwars/shared/models/movie_model.dart';
-import 'package:lemonstarwars/shared/repository/favorites/detail_repository.dart';
+import 'package:lemonstarwars/shared/repository/favorites/favorite_repository.dart';
 
 class DetailController {
   final stateNotifier = ValueNotifier<DetailState>(DetailState.empty);
