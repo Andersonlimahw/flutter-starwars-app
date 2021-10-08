@@ -11,11 +11,12 @@ class DetailController {
   final repository = DetailRepository();
   bool isFavorite = false;
 
-  Future<void> returIsFavorite({required int id}) async {
+  void returIsFavorite({required int id}) async {
     print("DetailController.returIsFavorite(): Starts");
     state = DetailState.loading;    
+    //repository.clearTable(tableName: 'favorites');
     final movie = await repository.getFavorites(id: id).then((value) => value); 
-    isFavorite = movie != null; 
+    isFavorite = movie != null && movie.episode_id == id; 
     state = DetailState.success;  
     print("DetailController.returIsFavorite(): Success, Movie Id $id isFavorite? $isFavorite");
   }

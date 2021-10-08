@@ -58,6 +58,7 @@ class _DetailPageState extends State<DetailPage> {
         case 1:
           print("_onItemTapped $index, Favorite");
           controller.addMovieToFavorites(movie: widget.movie);
+          controller.returIsFavorite(id: widget.movie.episode_id);
           setState(() {});
           break;
         case 2:
@@ -69,9 +70,11 @@ class _DetailPageState extends State<DetailPage> {
     }
 
     Widget _isFavoriteIcon() {      
-      if(controller.state == DetailState.success) {
-          return controller.isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border_outlined);
-      }      
+      if(controller.state == DetailState.empty || controller.state == DetailState.loading) {
+          return Icon(Icons.favorite_border_outlined);      
+      } else if(controller.state == DetailState.success) {
+        return controller.isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border_outlined);
+      }
       return Icon(Icons.favorite_border_outlined);
     };
 
