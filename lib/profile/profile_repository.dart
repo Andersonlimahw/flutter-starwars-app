@@ -4,7 +4,7 @@ import 'package:lemonstarwars/shared/repository/base_repository.dart';
 class ProfileRepository  extends BaseRepository { 
 
   ProfileRepository() : 
-    super(dbName: 'lemon_star_wars_database',  defaultTableSql: UserModel.generateCreateTable()); 
+    super(dbName: 'lemon_star_wars_movies_database',  defaultTableSql: UserModel.generateCreateTable()); 
   
   Future<UserModel?> getUser() async {
     final maps = await this.ListByTable(tableName: 'user');

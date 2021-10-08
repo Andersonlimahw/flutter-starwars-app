@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lemonstarwars/shared/models/movie_model.dart';
+import 'package:lemonstarwars/shared/models/user_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -9,7 +11,9 @@ class BaseRepository {
   BaseRepository({
     required this.dbName,
     required this.defaultTableSql,    
-  }) : assert(dbName.contains('_database') && dbName.length >= 10 && defaultTableSql.contains('CREATE TABLE')) {}
+  }) : assert(dbName.contains('_database') && dbName.length >= 10 && defaultTableSql.contains('CREATE TABLE')) {
+    initDB();
+  }
 
   /**
    * openDataBaseByName, 
@@ -24,23 +28,22 @@ class BaseRepository {
     print("BaseRepository.openDataBaseByName(): Success, Database opened with name: $dbName.db");    
     return database;
   }
-  /**
-   * openDataBaseWithDefaultTable
-   * Open Database with a default table provided in defaultTableSql
-   */
-  Future<Database> openDataBaseWithDefaultTable() async {    
-    print("BaseRepository.openDataBaseWithDefaultTable(): Init, Creating Database with name: $dbName.db");
+
+  Future<Database> initDB() async {
+    print("BaseRepository.initDB(): Init, Creating/opening Database with name: $dbName.db");
+    final userTable = UserModel.generateCreateTable();
+    final favoriteTable = MovieModel.generateCreateTable(name: 'favorites');
+
     WidgetsFlutterBinding.ensureInitialized();    
     final database = openDatabase(      
       join(await getDatabasesPath(), '$dbName.db'),
-      onCreate: (db, version) {
-        return db.execute(
-          defaultTableSql
-        );
+      onCreate: (db, version) async {
+               await db.execute(userTable);
+               await db.execute(favoriteTable);
       },
-      version: 1
+      version: 2
     );
-    print("BaseRepository.openDataBaseWithDefaultTable(): Success, Database created with name: $dbName.db");  
+    print("BaseRepository.initDB(): Success, Database opened with name: $dbName.db");  
     return database;
   }
 
@@ -79,7 +82,8 @@ class BaseRepository {
    */
   Future<int> insert({ required String tableName, required Map<String, dynamic> mapedModel }) async {
     // Get a reference to the database.
-    final db = await openDataBaseWithDefaultTable(); 
+    final db = await openDataBaseByName();
+    print("BaseRepository.insert(tableName: $tableName, mapedModel: $mapedModel ): Start : $dbName.db, db: $db");
     final result = await db.insert(
       tableName,
       mapedModel,

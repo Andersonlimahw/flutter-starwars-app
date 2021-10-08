@@ -41,10 +41,10 @@ class _HomePageState extends State<HomePage> {
     void _onItemTapped(int index) {
       switch (index) {
         case 0:
-          var poster = 'https://wallpaperaccess.com/full/3782150.jpg';
+          var gitHubRepo = 'https://github.com/Andersonlimahw/flutter-starwars-app';
           Share.share(
-                  "Olá, tudo bem?\nDá uma ulhada nesse poster que encontrei de Star Wars :).\n $poster", 
-                  subject: "Poster Star Wars",);
+                  "Olá, tudo bem?\nQuer dar uma olhada no código fonte deste aplicativo? Clique no link abaixo:.\n\n$gitHubRepo", 
+                  subject: "Star Wars Movies with flutter",);
           break;
         case 1:
           print("_onItemTapped: $index, Profile");

@@ -22,8 +22,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();   
-    // controller.clearTable();
-    controller.getUser();
+    //controller.clearTable();
+    controller.getUser();    
     controller.stateNotifier.addListener(() {
       setState(() {});
     });

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:core';
 
 class MovieModel {
+  final int? id;
   final int episode_id;
   final String title;
   final String director;
@@ -11,6 +12,7 @@ class MovieModel {
   final String url;
   
   MovieModel({
+    this.id,
     required this.episode_id,
     required this.title,
     required this.director,
@@ -24,6 +26,7 @@ class MovieModel {
   Map<String, dynamic> toMap() {
     return {
       'episode_id': episode_id,
+      'id': episode_id,
       'title': title,
       'director': director,
       'opening_crawl': opening_crawl,
@@ -97,5 +100,9 @@ class MovieModel {
       producer.hashCode ^
       release_date.hashCode ^
       url.hashCode;
+  }
+
+  static String generateCreateTable({ required String name }) {
+    return 'CREATE TABLE IF NOT EXISTS favorites(id INTEGER PRIMARY KEY, episode_id INTEGER, title TEXT, director TEXT, producer TEXT, opening_crawl TEXT, release_date TEXT, url TEXT)';
   }
 }

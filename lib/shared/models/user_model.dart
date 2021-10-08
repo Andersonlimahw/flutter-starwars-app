@@ -83,6 +83,6 @@ class UserModel {
   }
 
   static String generateCreateTable() {
-    return 'CREATE TABLE user(id INTEGER PRIMARY KEY, name TEXT, email TEXT, nickName TEXT, image TEXT)';
+    return 'CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY, name TEXT, email TEXT, nickName TEXT, image TEXT)';
   }
 }

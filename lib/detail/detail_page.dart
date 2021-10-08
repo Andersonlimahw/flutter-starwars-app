@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lemonstarwars/detail/detail_controller.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'package:lemonstarwars/core/app_gradients.dart';
@@ -7,6 +8,8 @@ import 'package:lemonstarwars/detail/widgets/movie_detail_widget.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/models/movie_model.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
+
+import 'detail_state.dart';
 
 class DetailPage extends StatefulWidget {
   final MovieModel movie;
@@ -20,10 +23,16 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  final controller = DetailController();
+
   @override
   void initState() {  
     print("DetailPage.movie => ${widget.movie.title}");
     super.initState();
+    controller.returIsFavorite(id: widget.movie.episode_id);
+    controller.stateNotifier.addListener(() {
+      setState(() {});
+    });
   }
   
   @override
@@ -47,7 +56,9 @@ class _DetailPageState extends State<DetailPage> {
               subject: "Star Wars | ${widget.movie.title}");
           break;
         case 1:
-          print("_onItemTapped $index, TODO: Menu");
+          print("_onItemTapped $index, Favorite");
+          controller.addMovieToFavorites(movie: widget.movie);
+          setState(() {});
           break;
         case 2:
           Navigator.pop(context);
@@ -56,6 +67,13 @@ class _DetailPageState extends State<DetailPage> {
           print("_onItemTapped $index, Not implemented");
       }
     }
+
+    Widget _isFavoriteIcon() {      
+      if(controller.state == DetailState.success) {
+          return controller.isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border_outlined);
+      }      
+      return Icon(Icons.favorite_border_outlined);
+    };
 
     return Scaffold(
         appBar: AppBarWidget(          
@@ -76,8 +94,8 @@ class _DetailPageState extends State<DetailPage> {
           bottom: true,
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.share), label: "",),
+              BottomNavigationBarItem(icon: _isFavoriteIcon(), label: "", activeIcon: Icon(Icons.favorite)),
               BottomNavigationBarItem(
                   icon: Icon(Icons.arrow_back_ios), label: ""),
             ],
