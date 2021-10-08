@@ -15,15 +15,18 @@ class DetailController {
     print("DetailController.returIsFavorite(): Starts");
     state = DetailState.loading;    
     //repository.clearTable(tableName: 'favorites');
-    final movie = await repository.getFavorites(id: id).then((value) => value); 
-    isFavorite = movie != null && movie.episode_id == id; 
+    isFavorite = await repository.getFavorites(id: id).then((value) => value);     
     state = DetailState.success;  
     print("DetailController.returIsFavorite(): Success, Movie Id $id isFavorite? $isFavorite");
   }
   void addMovieToFavorites({required MovieModel movie}) async {
     state = DetailState.loading;      
-    print("DetailController.addMovieToFavorites(): Starts");    
-    await repository.insertFavoriteMovie(movie: movie);    
+    print("DetailController.addMovieToFavorites(): Starts"); 
+    if(!isFavorite) {
+      await repository.insertFavoriteMovie(movie: movie);    
+    } else {
+      await repository.delete(tableName: 'favorites', id: movie.episode_id);
+    }       
     state = DetailState.success;  
     print("DetailController.addMovieToFavorites(): Success");
   }
