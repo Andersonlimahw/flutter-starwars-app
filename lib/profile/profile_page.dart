@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lemonstarwars/favorites/favorites_page.dart';
 import 'package:lemonstarwars/profile/profile_controller.dart';
 import 'package:lemonstarwars/profile/profile_state.dart';
 import 'package:lemonstarwars/profile/widgets/profile_app_bar_widget.dart';
@@ -23,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();   
     //controller.clearTable();
-    controller.getUser();    
+    //controller.getUser();    
     controller.stateNotifier.addListener(() {
       setState(() {});
     });
@@ -34,10 +35,16 @@ class _ProfilePageState extends State<ProfilePage> {
     void _onItemTapped(int index) {
       switch (index) {
         case 0:
-          print("_onItemTapped $index, TODO: Menu");
+          print("_onItemTapped $index, TODO: Notes");
           break;
         case 1:
-          print("_onItemTapped $index, TODO: Menu");
+          print("_onItemTapped $index, TODO: Favorites");
+           Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => 
+                  FavoritesPage()
+              ));
           break;
         case 2:
           Navigator.pop(context);

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:lemonstarwars/detail/detail_repository.dart';
 import 'package:lemonstarwars/detail/detail_state.dart';
 import 'package:lemonstarwars/shared/models/movie_model.dart';
+import 'package:lemonstarwars/shared/repository/favorites/detail_repository.dart';
 
 class DetailController {
   final stateNotifier = ValueNotifier<DetailState>(DetailState.empty);
   set state(DetailState state) => stateNotifier.value = state;
   DetailState get state => stateNotifier.value;
 
-  final repository = DetailRepository();
+  final repository = FavoriteRepository();
   bool isFavorite = false;
 
   void returIsFavorite({required int id}) async {

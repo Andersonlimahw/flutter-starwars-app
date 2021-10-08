@@ -1,12 +1,34 @@
 import 'package:lemonstarwars/shared/models/movie_model.dart';
 import 'package:lemonstarwars/shared/repository/base_repository.dart';
 
-class DetailRepository extends BaseRepository {    
-  DetailRepository()
+class FavoriteRepository extends BaseRepository {    
+  FavoriteRepository()
       : super(
           dbName: 'lemon_star_wars_movies_database',
           defaultTableSql: MovieModel.generateCreateTable(name: 'favorites'),
         );
+
+  Future<List<MovieModel>?> listFavorites({required int id}) async {    
+    final maps = await this.ListByTable(tableName: 'favorites');    
+    print("listFavorites => maps =>  $maps");
+    final list = List.generate(maps.length, (i) {
+      return MovieModel(
+        id: maps[i]['id'],
+        episode_id: maps[i]['episode_id'],
+        title: maps[i]['title'],
+        director: maps[i]['director'],
+        opening_crawl: maps[i]['opening_crawl'],
+        producer: maps[i]['producer'],
+        release_date: maps[i]['release_date'],
+        url: maps[i]['url'],
+      );
+    });
+    if(maps.length > 0) {
+      print("Favorites movies : ${list.map((e) => {e.title, e.id })}");
+      return list;
+    }
+    return null;
+  }
 
   Future<bool> getFavorites({required int id}) async {    
     final maps = await this.ListByTable(tableName: 'favorites');    

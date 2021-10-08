@@ -1,6 +1,7 @@
 class AppImages {
   static String get logo => "assets/images/logo.png";
   static String get banner => "assets/images/banner.png";
+  static String get favoritesBanner => "assets/images/favorites_banner.png";
   static String get thumb => "assets/images/movies/1.jpg";  
   static String get newHope => "assets/images/movies/1.jpg";  
 
