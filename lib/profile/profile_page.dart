@@ -35,7 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
     void _onItemTapped(int index) {
       switch (index) {
         case 0:
-          print("_onItemTapped $index, TODO: Notes");
+          print("_onItemTapped $index, TODO: Menu");
           break;
         case 1:
           print("_onItemTapped $index, TODO: Favorites");
@@ -99,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
             bottom: true,
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.note_add), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.local_movies), label: ""),
                 BottomNavigationBarItem(

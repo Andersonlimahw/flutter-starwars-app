@@ -45,6 +45,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
               ));
           break;
         case 1:
+          print("_onItemTapped $index, TODO: share list of favorites");
+          break;
+        case 2:
           Navigator.pop(context);
           break;
         default:
@@ -96,7 +99,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
             bottom: true,
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.arrow_back_ios), label: ""),
               ],

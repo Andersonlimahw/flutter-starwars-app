@@ -40,13 +40,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     void _onItemTapped(int index) {
       switch (index) {
-        case 0:
+        case 0:          
+          print("_onItemTapped: $index, TODO: Menu");
+          break;
+        case 1:
           var gitHubRepo = 'https://github.com/Andersonlimahw/flutter-starwars-app';
           Share.share(
                   "Olá, tudo bem?\nQuer dar uma olhada no código fonte deste aplicativo? Clique no link abaixo:.\n\n$gitHubRepo", 
                   subject: "Star Wars Movies with flutter",);
           break;
-        case 1:
+        case 2:
           print("_onItemTapped: $index, Profile");
            Navigator.push(
               context,
@@ -97,6 +100,7 @@ class _HomePageState extends State<HomePage> {
           bottom: true,
           child: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
             ],
