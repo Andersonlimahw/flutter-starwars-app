@@ -6,6 +6,7 @@ import 'package:lemonstarwars/profile/profile_page.dart';
 import 'package:lemonstarwars/shared/helpers/return_movie_image_helper.dart';
 import 'package:lemonstarwars/shared/widgets/app_bar_widget.dart';
 import 'package:lemonstarwars/shared/widgets/loading_widget.dart';
+import 'package:lemonstarwars/shared/widgets/menu_widget.dart';
 import 'package:lemonstarwars/shared/widgets/movie_card_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -19,103 +20,158 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final controller = HomeController();
-
-  
+  late AnimationController _drawerSlideController;
 
   @override
   void initState() {
     super.initState();
     controller.getMovies();
     controller.stateNotifier.addListener(() {
-      setState(() {
-        
-      });
+      setState(() {});
     });
+
+    _drawerSlideController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 150),
+    );
+  }
+
+  @override
+  void dispose() {
+    _drawerSlideController.dispose();
+    super.dispose();
+  }
+
+  bool _isDrawerOpen() {
+    return _drawerSlideController.value == 1.0;
+  }
+
+  bool _isDrawerOpening() {
+    return _drawerSlideController.status == AnimationStatus.forward;
+  }
+
+  bool _isDrawerClosed() {
+    return _drawerSlideController.value == 0.0;
+  }
+
+  void _toggleMenu() {
+    if (_isDrawerOpen() || _isDrawerOpening()) {
+      _drawerSlideController.reverse();
+    } else {
+      _drawerSlideController.forward();
+    }
+  }
+
+  Widget _renderMenuButton() {
+    return _isDrawerOpen() || _isDrawerOpening()
+        ? const Icon(
+            Icons.close,
+            color: AppColors.secondaryTextColor,
+          )
+        : const Icon(
+            Icons.menu,
+            color: AppColors.secondaryTextColor,
+          );
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget _buildDrawer() {
+      return AnimatedBuilder(
+        animation: _drawerSlideController,
+        builder: (context, child) {
+          return FractionalTranslation(
+            translation: Offset(1.0 - _drawerSlideController.value, 0.0),
+            child: _isDrawerClosed() ? const SizedBox() : MenuWidget(),
+          );
+        },
+      );
+    }
+
     void _onItemTapped(int index) {
       switch (index) {
-        case 0:          
-          print("_onItemTapped: $index, TODO: Menu");
+        case 0:
+          print("_onItemTapped: $index, _toggleMenu()");
+          _toggleMenu();
           break;
         case 1:
-          var gitHubRepo = 'https://github.com/Andersonlimahw/flutter-starwars-app';
+          var gitHubRepo =
+              'https://github.com/Andersonlimahw/flutter-starwars-app';
           Share.share(
-                  "Olá, tudo bem?\nQuer dar uma olhada no código fonte deste aplicativo? Clique no link abaixo:.\n\n$gitHubRepo", 
-                  subject: "Star Wars Movies with flutter",);
+            "Olá, tudo bem?\nQuer dar uma olhada no código fonte deste aplicativo? Clique no link abaixo:.\n\n$gitHubRepo",
+            subject: "Star Wars Movies with flutter",
+          );
           break;
         case 2:
           print("_onItemTapped: $index, Profile");
-           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => 
-                  ProfilePage()
-              ));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProfilePage()));
           break;
         default:
           print("_onItemTapped $index, Not implemented");
       }
-   }
+    }
 
-    if(controller.state == HomeState.success) {
+    if (controller.state == HomeState.success) {
       return Scaffold(
-        appBar: AppBarWidget(
-          title: "Star wars",
-          subtitle: "Movies",
-          image: AppImages.banner,
-        ),
-        body: Container(
-          decoration: BoxDecoration(gradient: AppGradients.linear),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: controller.movies!
-                .map((element) => Container(
-                      width: 282,
-                      height: 162,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 72, horizontal: 8),
-                      child: MovieCardWidget(
-                          image: ReturnMovieImage(id: element.episode_id).banner,
-                          title: element.title,
-                          cardHeigth: 162,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => 
-                                    DetailPage(movie: element),
-                                ));
-                          }),
-                    ))
-                .toList(),
+          appBar: AppBarWidget(
+            title: "Star wars",
+            subtitle: "Movies",
+            image: AppImages.banner,
           ),
-        ),
-        bottomNavigationBar: SafeArea(
-          bottom: true,
-          child: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+          body: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(gradient: AppGradients.linear),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: controller.movies!
+                      .map((element) => Container(
+                            width: 282,
+                            height: 162,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 72, horizontal: 8),
+                            child: MovieCardWidget(
+                                image: ReturnMovieImage(id: element.episode_id)
+                                    .banner,
+                                title: element.title,
+                                cardHeigth: 162,
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            DetailPage(movie: element),
+                                      ));
+                                }),
+                          ))
+                      .toList(),
+                ),
+              ),
+              _buildDrawer(),
             ],
-            selectedItemColor: AppColors.secondaryTextColor,
-            unselectedItemColor: AppColors.secondaryTextColor,
-            onTap: _onItemTapped,
-            backgroundColor: AppColors.primaryTextColor,
-            iconSize: 18,
           ),
-        ));
+          bottomNavigationBar: SafeArea(
+            bottom: true,
+            child: BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(icon: _renderMenuButton(), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+              ],
+              selectedItemColor: AppColors.secondaryTextColor,
+              unselectedItemColor: AppColors.secondaryTextColor,
+              onTap: _onItemTapped,
+              backgroundColor: AppColors.primaryTextColor,
+              iconSize: 18,
+            ),
+          ));
     } else {
       // TODO:  Adicionar página de error
-      return Scaffold(
-        body: LoadingWidget()
-      );
+      return Scaffold(body: LoadingWidget());
     }
   }
 }
