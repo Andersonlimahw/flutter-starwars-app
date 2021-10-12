@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_colors.dart';
+import 'package:lemonstarwars/home/home_page.dart';
+import 'package:lemonstarwars/profile/profile_page.dart';
 
 import 'core/app_widget.dart';
+import 'routes/routes.dart';
 
 void main() {
   runApp(const AppWidget());
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black
           )
       ),
-      home: const AppWidget(),
+      home: const AppWidget(),   
     );
   }
 }

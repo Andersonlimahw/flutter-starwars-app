@@ -14,6 +14,8 @@ import 'home_controller.dart';
 import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
+  static const String routeName = '/Movies';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override

@@ -9,6 +9,8 @@ import 'package:lemonstarwars/core/core.dart';
 import 'package:lemonstarwars/shared/widgets/loading_widget.dart';
 
 class ProfilePage extends StatefulWidget {
+  static const String routeName = '/Profile';
+
   const ProfilePage({
     Key? key,
   }) : super(key: key);

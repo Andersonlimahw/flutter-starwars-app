@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lemonstarwars/core/app_gradients.dart';
-import 'package:lemonstarwars/core/app_images.dart';
 import 'package:lemonstarwars/core/core.dart';
+import 'package:lemonstarwars/favorites/favorites_page.dart';
+import 'package:lemonstarwars/home/home_page.dart';
+import 'package:lemonstarwars/profile/profile_page.dart';
 
 class MenuWidget extends StatefulWidget {
   @override
@@ -53,7 +55,6 @@ class _MenuWidgetState extends State<MenuWidget>
         ),
       );
     }
-  
   }
 
   @override
@@ -67,30 +68,57 @@ class _MenuWidgetState extends State<MenuWidget>
     return Container(
       color: Colors.white,
       child: Stack(
-        fit: StackFit.expand,        
-        children: [          
-          _buildContent(),
+        fit: StackFit.expand,
+        children: [
+          _buildContent(context),
         ],
       ),
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: AppGradients.linear
-      ),
+      decoration: BoxDecoration(gradient: AppGradients.linear),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 16),
-          ..._buildListItems(),
+          ..._buildListItems(context),
         ],
       ),
     );
   }
 
-  List<Widget> _buildListItems() {
+  _navagateToPage({required String title}) {
+    print("MenuItem:_navagateToPage() path ${title}");
+    switch (title) {
+      case "Movies":
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ));
+      break;
+      case "Profile":
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfilePage(),
+            ));
+      break;
+      case "Favorites":
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FavoritesPage(),
+            ));
+      break;
+      default:
+        print("MenuItem:_navagateToPage() path ${title}. Not implemented");
+    }
+  }
+
+  List<Widget> _buildListItems(BuildContext context) {
     final listItems = <Widget>[];
     for (var i = 0; i < _menuTitles.length; ++i) {
       listItems.add(
@@ -111,15 +139,20 @@ class _MenuWidgetState extends State<MenuWidget>
               ),
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16),
-            child: Text(
-              _menuTitles[i],
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
-                color: AppColors.secondaryTextColor
+          child: GestureDetector(
+            onTap: () {
+              _navagateToPage(title: _menuTitles[i]);
+            },
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16),
+              child: Text(
+                _menuTitles[i],
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.secondaryTextColor),
               ),
             ),
           ),

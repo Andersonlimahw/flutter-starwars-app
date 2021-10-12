@@ -38,11 +38,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     void _onItemTapped(int index) {
       switch (index) {
         case 0:
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage(),
-              ));
+          print("_onItemTapped $index, TODO: Menu");
           break;
         case 1:
           print("_onItemTapped $index, TODO: share list of favorites");
