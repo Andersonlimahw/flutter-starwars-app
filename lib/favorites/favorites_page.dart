@@ -104,7 +104,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               unselectedItemColor: AppColors.secondaryTextColor,
               onTap: _onItemTapped,
               backgroundColor: AppColors.primaryTextColor,
-              iconSize: 18,
+              iconSize: 22,
             ),
           ));
     } else {

@@ -149,10 +149,7 @@ class _MenuWidgetState extends State<MenuWidget>
               child: Text(
                 _menuTitles[i],
                 textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.secondaryTextColor),
+                style: AppTextStyles.headingMediumStarWars,
               ),
             ),
           ),

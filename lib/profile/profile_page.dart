@@ -111,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
               unselectedItemColor: AppColors.secondaryTextColor,
               onTap: _onItemTapped,
               backgroundColor: AppColors.primaryTextColor,
-              iconSize: 18,
+              iconSize: 22,
             ),
           ));
     } else {

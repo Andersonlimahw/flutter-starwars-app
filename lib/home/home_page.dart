@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage>
     }
     setState(() {});
   }
-  
+
   @override
   Widget build(BuildContext context) {
     Widget _buildDrawer() {
@@ -102,6 +102,7 @@ class _HomePageState extends State<HomePage>
           _toggleMenu();
           break;
         case 1:
+          // TODO : Adicionar link com apk do aplicativo
           var gitHubRepo =
               'https://github.com/Andersonlimahw/flutter-starwars-app';
           Share.share(
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage>
               unselectedItemColor: AppColors.secondaryTextColor,
               onTap: _onItemTapped,
               backgroundColor: AppColors.primaryTextColor,
-              iconSize: 18,
+              iconSize: 22,
             ),
           ));
     } else {

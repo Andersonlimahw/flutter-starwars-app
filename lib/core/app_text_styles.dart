@@ -142,9 +142,18 @@ class AppTextStyles {
   );
 
   static final TextStyle headingMediumStarWars = GoogleFonts.pollerOne(
-    color: AppColors.primaryColorDark,
+   color: AppColors.secondaryTextColor,
     fontSize: 18,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w600,   
+    fontStyle : FontStyle.italic,
+    wordSpacing: 4,    
+    shadows: [
+      Shadow(
+        color:  Colors.black.withOpacity(0.9), 
+        blurRadius: 2,
+        offset: Offset(6, 2)
+      ),   
+    ] 
   );
 
   static final TextStyle headingMediumStarWarsSecondary = GoogleFonts.pollerOne(

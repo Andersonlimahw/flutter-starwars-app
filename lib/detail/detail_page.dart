@@ -108,7 +108,7 @@ class _DetailPageState extends State<DetailPage> {
             unselectedItemColor: AppColors.secondaryTextColor,
             onTap: _onItemTapped,
             backgroundColor: AppColors.primaryTextColor,
-            iconSize: 18,
+            iconSize: 22,
           ),
         ));
   }
