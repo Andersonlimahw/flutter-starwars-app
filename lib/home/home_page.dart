@@ -43,8 +43,8 @@ class _HomePageState extends State<HomePage>
 
   @override
   void dispose() {
-    _drawerSlideController.dispose();
     super.dispose();
+    _drawerSlideController.dispose();
   }
 
   bool _isDrawerOpen() {
@@ -59,26 +59,28 @@ class _HomePageState extends State<HomePage>
     return _drawerSlideController.value == 0.0;
   }
 
+  var menuIcon = Icon(
+    Icons.menu,
+    color: AppColors.secondaryTextColor,
+  );
+
   void _toggleMenu() {
     if (_isDrawerOpen() || _isDrawerOpening()) {
       _drawerSlideController.reverse();
+      menuIcon = Icon(
+        Icons.menu,
+        color: AppColors.secondaryTextColor,
+      );
     } else {
       _drawerSlideController.forward();
+      menuIcon = Icon(
+        Icons.close,
+        color: AppColors.secondaryTextColor,
+      );
     }
+    setState(() {});
   }
-
-  Widget _renderMenuButton() {
-    return _isDrawerOpen() || _isDrawerOpening()
-        ? const Icon(
-            Icons.close,
-            color: AppColors.secondaryTextColor,
-          )
-        : const Icon(
-            Icons.menu,
-            color: AppColors.secondaryTextColor,
-          );
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     Widget _buildDrawer() {
@@ -160,7 +162,7 @@ class _HomePageState extends State<HomePage>
             bottom: true,
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: _renderMenuButton(), label: ""),
+                BottomNavigationBarItem(icon: menuIcon, label: ""),
                 BottomNavigationBarItem(icon: Icon(Icons.share), label: ""),
                 BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
               ],
